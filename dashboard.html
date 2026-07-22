@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Dashboard IKM - SD Negeri 1 Cijawa
+    </title>
+
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- Google Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Chart.js -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family: 'Poppins', sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0565ad,
+                    #147ddd
+                );
+
+            min-height: 100vh;
+
+            color: #ffffff;
+
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            height: 86px;
+
+            background:
+                #0565ad;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding:
+                0 5.5%;
+
+            box-shadow:
+                0 2px 10px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.15
+                );
+
+        }
+
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+        }
+
+
+        .brand img {
+
+            width: 58px;
+
+            height: 58px;
+
+            object-fit: contain;
+
+        }
+
+
+        .brand-text h2 {
+
+            font-size: 21px;
+
+            font-weight: 700;
+
+            line-height: 1.2;
+
+        }
+
+
+        .brand-text p {
+
+            font-size: 13px;
+
+            margin-top: 4px;
+
+            opacity: 0.9;
+
+        }
+
+
+        .nav-menu {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 30px;
+
+        }
+
+
+        .nav-menu a {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            font-size: 15px;
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .nav-menu a:hover {
+
+            color: #ffd43b;
+
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+
+            width: 90%;
+
+            max-width: 1200px;
+
+            margin:
+                0 auto;
+
+            padding:
+                50px 0 70px;
+
+        }
+
+
+        .page-title {
+
+            text-align: center;
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .page-title h1 {
+
+            font-size: 38px;
+
+            font-weight: 800;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .page-title p {
+
+            font-size: 15px;
+
+            opacity: 0.9;
+
+        }
+
+
+        /* =========================
+           SUMMARY
+        ========================= */
+
+        .summary {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    1fr
+                );
+
+            gap: 22px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .summary-card {
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.95
+                );
+
+            color:
+                #075da8;
+
+            border-radius:
+                20px;
+
+            padding:
+                30px;
+
+            text-align:
+                center;
+
+            box-shadow:
+                0 10px 30px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.12
+                );
+
+        }
+
+
+        .summary-card i {
+
+            font-size:
+                30px;
+
+            margin-bottom:
+                12px;
+
+        }
+
+
+        .summary-card h3 {
+
+            font-size:
+                16px;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .summary-card .number {
+
+            font-size:
+                36px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .summary-card .category {
+
+            font-size:
+                18px;
+
+            font-weight:
+                700;
+
+        }
+
+
+        /* =========================
+           DASHBOARD GRID
+        ========================= */
+
+        .dashboard-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                25px;
+
+            margin-bottom:
+                30px;
+
+        }
+
+
+        .panel {
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.96
+                );
+
+            color:
+                #333;
+
+            border-radius:
+                20px;
+
+            padding:
+                30px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.12
+                );
+
+        }
+
+
+        .panel h2 {
+
+            color:
+                #075da8;
+
+            font-size:
+                20px;
+
+            margin-bottom:
+                25px;
+
+        }
+
+
+        .chart-container {
+
+            position:
+                relative;
+
+            height:
+                430px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+        }
+
+
+        /* =========================
+           ASPECT LIST
+        ========================= */
+
+        .aspect-item {
+
+            margin-bottom:
+                21px;
+
+        }
+
+
+        .aspect-header {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            gap:
+                15px;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .aspect-name {
+
+            font-size:
+                14px;
+
+            font-weight:
+                600;
+
+            color:
+                #333;
+
+        }
+
+
+        .aspect-value {
+
+            font-size:
+                14px;
+
+            font-weight:
+                700;
+
+            color:
+                #075da8;
+
+        }
+
+
+        .progress {
+
+            width:
+                100%;
+
+            height:
+                10px;
+
+            background:
+                #e6edf5;
+
+            border-radius:
+                10px;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .progress-bar {
+
+            height:
+                100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #0565ad,
+                    #2e91e8
+                );
+
+            border-radius:
+                10px;
+
+            width:
+                0%;
+
+            transition:
+                width
+                1s
+                ease;
+
+        }
+
+
+        /* =========================
+           TABLE
+        ========================= */
+
+        .table-panel {
+
+            margin-top:
+                25px;
+
+        }
+
+
+        .table-wrapper {
+
+            overflow-x:
+                auto;
+
+        }
+
+
+        table {
+
+            width:
+                100%;
+
+            border-collapse:
+                collapse;
+
+        }
+
+
+        th {
+
+            background:
+                #075da8;
+
+            color:
+                white;
+
+            padding:
+                14px;
+
+            font-size:
+                13px;
+
+            text-align:
+                left;
+
+        }
+
+
+        td {
+
+            padding:
+                13px
+                14px;
+
+            border-bottom:
+                1px solid
+                #e5e5e5;
+
+            font-size:
+                13px;
+
+        }
+
+
+        tr:hover td {
+
+            background:
+                #f4f9ff;
+
+        }
+
+
+        .badge {
+
+            display:
+                inline-block;
+
+            padding:
+                5px
+                12px;
+
+            border-radius:
+                20px;
+
+            background:
+                #e6f3ff;
+
+            color:
+                #0565ad;
+
+            font-weight:
+                600;
+
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .button-area {
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                15px;
+
+            margin-top:
+                35px;
+
+        }
+
+
+        .btn {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            padding:
+                14px
+                28px;
+
+            border-radius:
+                30px;
+
+            text-decoration:
+                none;
+
+            font-weight:
+                700;
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .btn-primary {
+
+            background:
+                #ffd23f;
+
+            color:
+                #075da8;
+
+        }
+
+
+        .btn-primary:hover {
+
+            transform:
+                translateY(
+                    -3px
+                );
+
+            box-shadow:
+                0 8px 20px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.2
+                );
+
+        }
+
+
+        .btn-outline {
+
+            border:
+                2px solid
+                white;
+
+            color:
+                white;
+
+        }
+
+
+        .btn-outline:hover {
+
+            background:
+                white;
+
+            color:
+                #075da8;
+
+        }
+
+
+        /* =========================
+           LOADING
+        ========================= */
+
+        .loading {
+
+            text-align:
+                center;
+
+            padding:
+                40px;
+
+            font-size:
+                16px;
+
+        }
+
+
+        .loading i {
+
+            font-size:
+                30px;
+
+            margin-bottom:
+                10px;
+
+            animation:
+                spin 1s
+                linear
+                infinite;
+
+        }
+
+
+        @keyframes spin {
+
+            from {
+                transform:
+                    rotate(0deg);
+            }
+
+            to {
+                transform:
+                    rotate(360deg);
+            }
+
+        }
+
+
+        /* =========================
+           ERROR
+        ========================= */
+
+        .error-box {
+
+            display:
+                none;
+
+            background:
+                #fff0f0;
+
+            color:
+                #c62828;
+
+            padding:
+                20px;
+
+            border-radius:
+                12px;
+
+            margin-bottom:
+                25px;
+
+            text-align:
+                center;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align:
+                center;
+
+            padding:
+                25px;
+
+            background:
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.12
+                );
+
+            font-size:
+                13px;
+
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (
+            max-width:
+            900px
+        ) {
+
+            .nav-menu {
+
+                display:
+                    none;
+
+            }
+
+
+            .summary {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .dashboard-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .page-title h1 {
+
+                font-size:
+                    28px;
+
+            }
+
+        }
+
+
+        @media (
+            max-width:
+            600px
+        ) {
+
+            .navbar {
+
+                height:
+                    75px;
+
+                padding:
+                    0 20px;
+
+            }
+
+
+            .brand img {
+
+                width:
+                    48px;
+
+                height:
+                    48px;
+
+            }
+
+
+            .brand-text h2 {
+
+                font-size:
+                    17px;
+
+            }
+
+
+            .brand-text p {
+
+                font-size:
+                    10px;
+
+            }
+
+
+            .container {
+
+                width:
+                    92%;
+
+                padding-top:
+                    35px;
+
+            }
+
+
+            .panel {
+
+                padding:
+                    20px;
+
+            }
+
+
+            .chart-container {
+
+                height:
+                    330px;
+
+            }
+
+
+            .button-area {
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .btn {
+
+                justify-content:
+                    center;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <header class="navbar">
+
+        <div class="brand">
+
+            <!-- Ganti logo.png dengan nama file logo Anda -->
+            <img
+                src="logo-sd.png"
+                alt="Logo SD Negeri 1 Cijawa"
+            >
+
+            <div class="brand-text">
+
+                <h2>
+                    SD Negeri 1 Cijawa
+                </h2>
+
+                <p>
+                    Kecamatan Cipeundeuy •
+                    Kabupaten Bandung Barat
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <nav class="nav-menu">
+
+            <a href="index.html">
+                Beranda
+            </a>
+
+            <a href="index.html#statistik">
+                Statistik
+            </a>
+
+            <a href="index.html#profil">
+                Profil
+            </a>
+
+            <a href="index.html#visi-misi">
+                Visi & Misi
+            </a>
+
+            <a href="index.html#program">
+                Program
+            </a>
+
+            <a href="index.html#galeri">
+                Galeri
+            </a>
+
+            <a href="index.html#pendidik">
+                Pendidik
+            </a>
+
+            <a href="index.html#kontak">
+                Kontak
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         CONTENT
+    ========================= -->
+
+    <main class="container">
+
+
+        <div class="page-title">
+
+            <h1>
+                Dashboard Survei IKM
+            </h1>
+
+            <p>
+                Hasil Survei Kepuasan Masyarakat
+                SD Negeri 1 Cijawa
+            </p>
+
+        </div>
+
+
+        <!-- ERROR -->
+
+        <div
+            id="errorBox"
+            class="error-box"
+        >
+            Gagal mengambil data
+            dari Google Spreadsheet.
+        </div>
+
+
+
+        <!-- LOADING -->
+
+        <div
+            id="loading"
+            class="loading"
+        >
+
+            <i
+                class="fa-solid fa-spinner"
+            ></i>
+
+            <br>
+
+            Memuat data survei...
+
+        </div>
+
+
+
+        <!-- DASHBOARD -->
+
+        <div
+            id="dashboardContent"
+            style="display:none;"
+        >
+
+
+            <!-- SUMMARY -->
+
+            <section class="summary">
+
+
+                <div class="summary-card">
+
+                    <i
+                        class="fa-solid fa-users"
+                    ></i>
+
+                    <h3>
+                        Total Responden
+                    </h3>
+
+                    <div
+                        class="number"
+                        id="totalResponden"
+                    >
+                        0
+                    </div>
+
+                </div>
+
+
+
+                <div class="summary-card">
+
+                    <i
+                        class="fa-solid fa-chart-line"
+                    ></i>
+
+                    <h3>
+                        Nilai IKM
+                    </h3>
+
+                    <div
+                        class="number"
+                        id="ikmValue"
+                    >
+                        0.00
+                    </div>
+
+                </div>
+
+
+<div class="summary-card rating-card">
+
+    <h2>Kategori</h2><br>
+
+    <div class="rating-card">
+
+        <div id="ikmStars" class="rating-stars"></div> <br>
+
+        <div id="ikmCategory" class="rating-category">
+
+            -
+        </div>
+
+        <div class="rating-text">
+          
+        </div>
+
+    </div>
+
+</div>
+               
+
+
+            </section>
+
+
+
+            <!-- CHART + ASPECT -->
+
+            <section class="dashboard-grid">
+
+
+                <!-- RADAR -->
+
+                <div class="panel">
+
+                    <h2>
+                        <i
+                            class="fa-solid fa-chart-area"
+                        ></i>
+
+                        Grafik 9 Unsur Pelayanan
+                    </h2>
+
+
+                    <div class="chart-container">
+
+                        <canvas
+                            id="radarChart"
+                        ></canvas>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PROGRESS -->
+
+                <div class="panel">
+
+                    <h2>
+                        <i
+                            class="fa-solid fa-list-check"
+                        ></i>
+
+                        Hasil Penilaian 9 Aspek
+                    </h2>
+
+
+                    <div
+                        id="aspectList"
+                    ></div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- TABLE -->
+
+            <section class="panel table-panel">
+
+                <h2>
+                    <i
+                        class="fa-solid fa-table"
+                    ></i>
+
+                    Detail Nilai Setiap Unsur
+                </h2>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    No
+                                </th>
+
+                                <th>
+                                    Unsur Pelayanan
+                                </th>
+
+                                <th>
+                                    Pertanyaan
+                                </th>
+
+                                <th>
+                                    Rata-rata
+                                </th>
+
+                                <th>
+                                    Nilai
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="aspectTable"
+                        ></tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- BUTTON -->
+
+            <div class="button-area">
+
+                <a
+                    href="index.html"
+                    class="btn btn-outline"
+                >
+
+                    <i
+                        class="fa-solid fa-house"
+                    ></i>
+
+                    Kembali ke Beranda
+
+                </a>
+
+
+                <a
+                    href="survei.html"
+                    class="btn btn-primary"
+                >
+
+                    <i
+                        class="fa-solid fa-pen-to-square"
+                    ></i>
+
+                    Isi Survei
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 SD Negeri 1 Cijawa.
+        Semua Hak Dilindungi.
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+
+        /*
+        ==========================================
+        GANTI DENGAN URL WEB APP APPS SCRIPT ANDA
+        ==========================================
+        */
+
+        const API_URL =
+            'https://script.google.com/macros/s/AKfycbxOkXkPSuRIR2i8s-IuoXc2_cmmsNVuv0jMymtoRCXPKQ3yNXTdm6M3-awRSnxqEbo/exec';
+
+
+
+        let radarChart = null;
+
+
+
+        /*
+        ==========================================
+        LOAD DASHBOARD
+        ==========================================
+        */
+
+        async function loadDashboard() {
+
+
+            try {
+
+
+                const response =
+                    await fetch(
+
+                        API_URL +
+                        '?action=getDashboard'
+
+                    );
+
+
+                if (
+                    !response.ok
+                ) {
+
+                    throw new Error(
+                        'HTTP Error ' +
+                        response.status
+                    );
+
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                console.log(
+                    'Data Dashboard:',
+                    data
+                );
+
+
+                if (
+                    !data.success
+                ) {
+
+                    throw new Error(
+                        data.message ||
+                        'Data tidak tersedia'
+                    );
+
+                }
+
+
+                /*
+                ==================================
+                HILANGKAN LOADING
+                ==================================
+                */
+
+                document
+                    .getElementById(
+                        'loading'
+                    )
+                    .style.display =
+                    'none';
+
+
+                document
+                    .getElementById(
+                        'dashboardContent'
+                    )
+                    .style.display =
+                    'block';
+
+
+
+                /*
+                ==================================
+                SUMMARY
+                ==================================
+                */
+
+                document
+                    .getElementById(
+                        'totalResponden'
+                    )
+                    .textContent =
+
+                    data.totalResponden ||
+                    0;
+
+
+                document
+                    .getElementById(
+                        'ikmValue'
+                    )
+                    .textContent =
+
+                    Number(
+                        data.ikm ||
+                        0
+                    ).toFixed(2);
+
+
+                document
+                    .getElementById(
+                        'ikmCategory'
+                    )
+                    .textContent =
+
+                    data.category ||
+                    '-';
+		const kategori = document.getElementById('ikmCategory');
+
+		kategori.textContent = data.category || '-';
+		kategori.style.fontWeight = '700';   // atau 'bold'
+		kategori.style.fontSize = '20px';    // Ukuran huruf
+
+		tampilkanRating(data.ikm);
+
+                /*
+                ==================================
+                ASPEK
+                ==================================
+                */
+
+                const aspects =
+                    data.aspects ||
+                    [];
+
+
+                createAspectList(
+                    aspects
+                );
+
+
+                createAspectTable(
+                    aspects
+                );
+
+
+                createRadarChart(
+                    aspects
+                );
+
+
+            } catch (
+                error
+            ) {
+
+
+                console.error(
+                    'Dashboard Error:',
+                    error
+                );
+
+
+                document
+                    .getElementById(
+                        'loading'
+                    )
+                    .style.display =
+                    'none';
+
+
+                document
+                    .getElementById(
+                        'errorBox'
+                    )
+                    .style.display =
+                    'block';
+
+
+                document
+                    .getElementById(
+                        'errorBox'
+                    )
+                    .textContent =
+
+                    'Gagal memuat data dashboard. ' +
+                    error.message;
+
+
+            }
+
+        }
+
+
+function tampilkanRating(nilaiIKM){
+
+    const stars =
+        document.getElementById("ikmStars");
+
+    nilaiIKM = Number(nilaiIKM);
+
+    let jumlah = 0;
+
+    if(nilaiIKM >= 90){
+
+        jumlah = 4;
+
+    }else if(nilaiIKM >= 75){
+
+        jumlah = 3;
+
+    }else if(nilaiIKM >= 60){
+
+        jumlah = 2;
+
+    }else if(nilaiIKM >= 50){
+
+        jumlah = 1;
+
+    }
+
+    let html="";
+
+    for(let i=1;i<=4;i++){
+
+        if(i<=jumlah){
+
+            html += '<span class="star active">⭐</span>';
+
+        }else{
+
+            html += '<span class="star">☆</span>';
+
+        }
+
+    }
+
+    stars.innerHTML = html;
+
+}
+
+        /*
+        ==========================================
+        ASPECT LIST
+        ==========================================
+        */
+
+        function createAspectList(
+            aspects
+        ) {
+
+
+            const container =
+                document
+                    .getElementById(
+                        'aspectList'
+                    );
+
+
+            container.innerHTML =
+                '';
+
+
+            aspects.forEach(
+                function(
+                    aspect
+                ) {
+
+
+                    const item =
+                        document
+                            .createElement(
+                                'div'
+                            );
+
+
+                    item.className =
+                        'aspect-item';
+
+
+                    item.innerHTML = `
+
+                        <div
+                            class="aspect-header"
+                        >
+
+                            <span
+                                class="aspect-name"
+                            >
+
+                                ${aspect.no}.
+                                ${aspect.name}
+
+                            </span>
+
+
+                            <span
+                                class="aspect-value"
+                            >
+
+                                ${Number(
+                                    aspect.value
+                                ).toFixed(2)}
+
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="progress"
+                        >
+
+                            <div
+                                class="progress-bar"
+                                style="
+                                    width:
+                                    ${Math.min(
+                                        aspect.value,
+                                        100
+                                    )}%;
+                                "
+                            ></div>
+
+                        </div>
+
+                    `;
+
+
+                    container
+                        .appendChild(
+                            item
+                        );
+
+                }
+            );
+
+        }
+
+
+
+        /*
+        ==========================================
+        TABLE
+        ==========================================
+        */
+
+        function createAspectTable(
+            aspects
+        ) {
+
+
+            const table =
+                document
+                    .getElementById(
+                        'aspectTable'
+                    );
+
+
+            table.innerHTML =
+                '';
+
+
+            aspects.forEach(
+                function(
+                    aspect
+                ) {
+
+
+                    const row =
+                        document
+                            .createElement(
+                                'tr'
+                            );
+
+
+                    row.innerHTML = `
+
+                        <td>
+                            ${aspect.no}
+                        </td>
+
+                        <td>
+                            ${aspect.name}
+                        </td>
+
+                        <td>
+                            ${aspect.question}
+                        </td>
+
+                        <td>
+                            ${Number(
+                                aspect.average
+                            ).toFixed(2)}
+                        </td>
+
+                        <td>
+
+                            <span
+                                class="badge"
+                            >
+
+                                ${Number(
+                                    aspect.value
+                                ).toFixed(2)}
+
+                            </span>
+
+                        </td>
+
+                    `;
+
+
+                    table
+                        .appendChild(
+                            row
+                        );
+
+                }
+            );
+
+        }
+
+
+
+        /*
+        ==========================================
+        RADAR CHART
+        ==========================================
+        */
+
+        function createRadarChart(
+            aspects
+        ) {
+
+
+            const canvas =
+                document
+                    .getElementById(
+                        'radarChart'
+                    );
+
+
+            const labels =
+                aspects.map(
+                    function(
+                        aspect
+                    ) {
+
+                        return aspect.name;
+
+                    }
+                );
+
+
+            const values =
+                aspects.map(
+                    function(
+                        aspect
+                    ) {
+
+                        return Number(
+                            aspect.value
+                        );
+
+                    }
+                );
+
+
+
+            if (
+                radarChart
+            ) {
+
+                radarChart.destroy();
+
+            }
+
+
+
+            radarChart =
+                new Chart(
+
+                    canvas,
+
+                    {
+
+                        type:
+                            'radar',
+
+
+                        data: {
+
+                            labels:
+                                labels,
+
+
+                            datasets: [
+
+                                {
+
+                                    label:
+                                        'Nilai IKM',
+
+
+                                    data:
+                                        values,
+
+
+                                    fill:
+                                        true,
+
+
+                                    borderWidth:
+                                        2,
+
+
+                                    pointRadius:
+                                        4
+
+                                }
+
+                            ]
+
+                        },
+
+
+                        options: {
+
+                            responsive:
+                                true,
+
+
+                            maintainAspectRatio:
+                                false,
+
+
+                            scales: {
+
+                                r: {
+
+                                    min:
+                                        0,
+
+
+                                    max:
+                                        100,
+
+
+                                    ticks: {
+
+                                        stepSize:
+                                            20
+
+                                    }
+
+                                }
+
+                            },
+
+
+                            plugins: {
+
+                                legend: {
+
+                                    display:
+                                        true
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                );
+
+        }
+
+
+
+        /*
+        ==========================================
+        JALANKAN SAAT HALAMAN DIBUKA
+        ==========================================
+        */
+
+        document
+            .addEventListener(
+
+                'DOMContentLoaded',
+
+                function() {
+
+                    loadDashboard();
+
+                }
+
+            );
+
+
+    </script>
+
+
+</body>
+
+</html>

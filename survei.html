@@ -1,0 +1,3080 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Survei IKM - SD Negeri 1 Cijawa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0868b9;
+            --primary-dark: #07569a;
+            --secondary: #ffd43b;
+            --light: #f4f8fc;
+            --text: #1f2937;
+            --muted: #64748b;
+            --border: #dbe5ef;
+            --success: #198754;
+            --danger: #dc3545;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(
+                135deg,
+                #eef7ff,
+                #f8fbff
+            );
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            background: linear-gradient(
+                135deg,
+                #075da5,
+                #0877d4
+            );
+            color: white;
+            padding: 15px 20px;
+            box-shadow:
+                0 4px 15px
+                rgba(0, 0, 0, .12);
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand img {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+        }
+
+        .brand h1 {
+            font-size: 21px;
+            line-height: 1.2;
+            margin-bottom: 4px;
+        }
+
+        .brand p {
+            font-size: 12px;
+            opacity: .9;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+
+            border: 1px solid
+                rgba(255,255,255,.7);
+
+            padding: 9px 16px;
+            border-radius: 30px;
+
+            font-size: 13px;
+
+            transition: .3s;
+
+            white-space: nowrap;
+        }
+
+        .back-link:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+            width: min(
+                100% - 30px,
+                1000px
+            );
+
+            margin:
+                35px auto
+                60px;
+        }
+
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        .intro {
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 8px 30px
+                rgba(24, 77, 120, .09);
+
+            margin-bottom: 22px;
+
+            border-left:
+                5px solid
+                var(--secondary);
+        }
+
+        .intro-badge {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background:
+                #e8f4ff;
+
+            color:
+                var(--primary);
+
+            padding:
+                7px 13px;
+
+            border-radius:
+                30px;
+
+            font-size:
+                12px;
+
+            font-weight:
+                600;
+
+            margin-bottom:
+                15px;
+        }
+
+        .intro h2 {
+            font-size:
+                32px;
+
+            line-height:
+                1.3;
+
+            margin-bottom:
+                15px;
+
+            color:
+                #123a5b;
+        }
+
+        .intro p {
+            font-size:
+                14px;
+
+            line-height:
+                1.9;
+
+            color:
+                var(--muted);
+        }
+
+        .notice {
+            display:
+                flex;
+
+            align-items:
+                flex-start;
+
+            gap:
+                10px;
+
+            background:
+                #fff9df;
+
+            border:
+                1px solid
+                #f4dc74;
+
+            color:
+                #735b00;
+
+            padding:
+                14px 16px;
+
+            border-radius:
+                12px;
+
+            margin-top:
+                20px;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.7;
+        }
+
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .card {
+            background:
+                white;
+
+            border-radius:
+                20px;
+
+            padding:
+                30px;
+
+            margin-bottom:
+                22px;
+
+            box-shadow:
+                0 8px 30px
+                rgba(24, 77, 120, .09);
+        }
+
+        .section-title {
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                15px;
+
+            margin-bottom:
+                25px;
+        }
+
+        .section-number {
+            width:
+                42px;
+
+            height:
+                42px;
+
+            border-radius:
+                50%;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            background:
+                var(--primary);
+
+            color:
+                white;
+
+            font-weight:
+                700;
+        }
+
+        .section-title h3 {
+            font-size:
+                20px;
+
+            color:
+                #123a5b;
+        }
+
+        .section-title p {
+            color:
+                var(--muted);
+
+            font-size:
+                12px;
+
+            margin-top:
+                3px;
+        }
+
+
+        /* =========================
+           RESPONDENT
+        ========================= */
+
+        .form-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                20px;
+        }
+
+        .form-group {
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                8px;
+        }
+
+        .form-group.full {
+            grid-column:
+                1 / -1;
+        }
+
+        .form-group label {
+            font-size:
+                13px;
+
+            font-weight:
+                600;
+
+            color:
+                #334155;
+        }
+
+        .required {
+            color:
+                var(--danger);
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width:
+                100%;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                10px;
+
+            padding:
+                13px 14px;
+
+            font-family:
+                inherit;
+
+            font-size:
+                13px;
+
+            color:
+                var(--text);
+
+            background:
+                white;
+
+            outline:
+                none;
+
+            transition:
+                .25s;
+        }
+
+        input[type="text"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color:
+                var(--primary);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(8,104,185,.1);
+        }
+
+        textarea {
+            min-height:
+                130px;
+
+            resize:
+                vertical;
+        }
+
+
+        /* =========================
+           SURVEY HEADER
+        ========================= */
+
+        .survey-header {
+            background:
+                #f7fbff;
+
+            border:
+                1px solid
+                #dceeff;
+
+            padding:
+                15px;
+
+            border-radius:
+                12px;
+
+            color:
+                #526579;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.7;
+
+            margin-bottom:
+                20px;
+        }
+
+        .scale-info {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                10px;
+
+            margin-bottom:
+                25px;
+        }
+
+        .scale-item {
+            text-align:
+                center;
+
+            padding:
+                12px 8px;
+
+            border-radius:
+                10px;
+
+            background:
+                #f5f9fd;
+
+            border:
+                1px solid
+                var(--border);
+
+            font-size:
+                12px;
+
+            color:
+                #64748b;
+        }
+
+        .scale-item strong {
+            display:
+                block;
+
+            font-size:
+                18px;
+
+            color:
+                var(--primary);
+
+            margin-bottom:
+                3px;
+        }
+
+
+        /* =========================
+           QUESTION
+        ========================= */
+
+        .question {
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                15px;
+
+            padding:
+                20px;
+
+            margin-bottom:
+                15px;
+
+            transition:
+                .25s;
+        }
+
+        .question:hover {
+            border-color:
+                #a9d3f5;
+        }
+
+        .question.has-error {
+            border-color:
+                var(--danger);
+
+            background:
+                #fff8f8;
+        }
+
+        .question-title {
+            display:
+                flex;
+
+            align-items:
+                flex-start;
+
+            gap:
+                12px;
+
+            margin-bottom:
+                18px;
+        }
+
+        .question-number {
+            flex:
+                0 0 32px;
+
+            width:
+                32px;
+
+            height:
+                32px;
+
+            border-radius:
+                50%;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            background:
+                #e8f4ff;
+
+            color:
+                var(--primary);
+
+            font-size:
+                13px;
+
+            font-weight:
+                700;
+        }
+
+        .question-title h4 {
+            color:
+                #243b53;
+
+            font-size:
+                14px;
+
+            line-height:
+                1.6;
+        }
+
+        .question-title small {
+            color:
+                var(--muted);
+
+            font-weight:
+                400;
+
+            font-size:
+                12px;
+        }
+
+        .rating-options {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                10px;
+        }
+
+        .rating-options input {
+            display:
+                none;
+        }
+
+        .rating-options label {
+            cursor:
+                pointer;
+
+            text-align:
+                center;
+
+            padding:
+                12px 8px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                10px;
+
+            font-size:
+                11px;
+
+            color:
+                #64748b;
+
+            transition:
+                .25s;
+        }
+
+        .rating-options label strong {
+            display:
+                block;
+
+            font-size:
+                20px;
+
+            color:
+                var(--primary);
+
+            margin-bottom:
+                3px;
+        }
+
+        .rating-options label:hover {
+            border-color:
+                var(--primary);
+
+            background:
+                #f3f9ff;
+        }
+
+        .rating-options input:checked + label {
+            background:
+                var(--primary);
+
+            border-color:
+                var(--primary);
+
+            color:
+                white;
+
+            box-shadow:
+                0 5px 15px
+                rgba(8,104,185,.2);
+        }
+
+        .rating-options input:checked + label strong {
+            color:
+                white;
+        }
+
+        .error-message {
+            display:
+                none;
+
+            color:
+                var(--danger);
+
+            font-size:
+                11px;
+
+            margin-top:
+                8px;
+        }
+
+        .question.has-error
+        .error-message {
+            display:
+                block;
+        }
+
+
+        /* =========================
+           SUBMIT
+        ========================= */
+
+        .submit-area {
+            text-align:
+                center;
+        }
+
+        .submit-btn {
+            border:
+                none;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0868b9,
+                    #0877d4
+                );
+
+            color:
+                white;
+
+            padding:
+                15px 35px;
+
+            border-radius:
+                30px;
+
+            font-family:
+                inherit;
+
+            font-size:
+                14px;
+
+            font-weight:
+                600;
+
+            cursor:
+                pointer;
+
+            transition:
+                .25s;
+
+            min-width:
+                220px;
+        }
+
+        .submit-btn:hover {
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(8,104,185,.25);
+        }
+
+        .submit-btn:disabled {
+            opacity:
+                .7;
+
+            cursor:
+                not-allowed;
+
+            transform:
+                none;
+        }
+
+        .privacy {
+            color:
+                #64748b;
+
+            font-size:
+                11px;
+
+            margin-top:
+                15px;
+
+            line-height:
+                1.7;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+            text-align:
+                center;
+
+            color:
+                #6b7b8d;
+
+            font-size:
+                11px;
+
+            padding:
+                0 15px 30px;
+        }
+
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .success-modal {
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            background:
+                rgba(5, 32, 58, .65);
+
+            display:
+                none;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            padding:
+                20px;
+
+            z-index:
+                9999;
+        }
+
+        .success-modal.show {
+            display:
+                flex;
+        }
+
+        .success-box {
+            width:
+                min(100%, 500px);
+
+            background:
+                white;
+
+            border-radius:
+                22px;
+
+            padding:
+                35px;
+
+            text-align:
+                center;
+
+            box-shadow:
+                0 20px 60px
+                rgba(0,0,0,.25);
+
+            animation:
+                modalIn .3s ease;
+        }
+
+        @keyframes modalIn {
+
+            from {
+                opacity:
+                    0;
+
+                transform:
+                    translateY(20px)
+                    scale(.96);
+            }
+
+            to {
+                opacity:
+                    1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+        }
+
+        .success-icon {
+            width:
+                70px;
+
+            height:
+                70px;
+
+            margin:
+                0 auto 15px;
+
+            border-radius:
+                50%;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            background:
+                #dff7e8;
+
+            color:
+                var(--success);
+
+            font-size:
+                30px;
+        }
+
+        .success-box h2 {
+            color:
+                #123a5b;
+
+            margin-bottom:
+                10px;
+        }
+
+        .success-box p {
+            color:
+                var(--muted);
+
+            font-size:
+                13px;
+
+            line-height:
+                1.7;
+        }
+
+        .result-score {
+            background:
+                #f5f9fd;
+
+            border:
+                1px solid
+                var(--border);
+
+            padding:
+                18px;
+
+            border-radius:
+                12px;
+
+            margin:
+                20px 0;
+
+            color:
+                var(--muted);
+
+            font-size:
+                12px;
+        }
+
+        .result-score strong {
+            display:
+                block;
+
+            font-size:
+                30px;
+
+            color:
+                var(--primary);
+
+            margin:
+                5px 0;
+        }
+
+        .result-score span {
+            display:
+                block;
+
+            color:
+                var(--success);
+
+            font-weight:
+                700;
+
+            font-size:
+                13px;
+        }
+
+        .modal-actions {
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                10px;
+
+            flex-wrap:
+                wrap;
+        }
+
+        .modal-btn {
+            padding:
+                11px 20px;
+
+            border-radius:
+                25px;
+
+            font-family:
+                inherit;
+
+            font-size:
+                12px;
+
+            font-weight:
+                600;
+
+            cursor:
+                pointer;
+
+            text-decoration:
+                none;
+        }
+
+        .modal-btn.primary {
+            background:
+                var(--primary);
+
+            color:
+                white;
+        }
+
+        .modal-btn.secondary {
+            background:
+                white;
+
+            color:
+                var(--primary);
+
+            border:
+                1px solid
+                var(--primary);
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .header-inner {
+                align-items:
+                    flex-start;
+            }
+
+            .back-link {
+                font-size:
+                    11px;
+
+                padding:
+                    8px 11px;
+            }
+
+            .brand h1 {
+                font-size:
+                    16px;
+            }
+
+            .brand p {
+                font-size:
+                    10px;
+            }
+
+            .brand img {
+                width:
+                    45px;
+
+                height:
+                    45px;
+            }
+
+            .container {
+                width:
+                    min(
+                        100% - 20px,
+                        1000px
+                    );
+
+                margin-top:
+                    20px;
+            }
+
+            .intro,
+            .card {
+                padding:
+                    20px;
+
+                border-radius:
+                    15px;
+            }
+
+            .intro h2 {
+                font-size:
+                    22px;
+            }
+
+            .form-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .form-group.full {
+                grid-column:
+                    auto;
+            }
+
+            .scale-info {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .rating-options {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .question-title {
+                align-items:
+                    flex-start;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <div class="brand">
+
+            <img
+                src="assets/logo-sd.png"
+                alt="Logo SD Negeri 1 Cijawa"
+            >
+
+            <div>
+
+                <h1>
+                    SD Negeri 1 Cijawa
+                </h1>
+
+                <p>
+                    Kecamatan Cipeundeuy •
+                    Kabupaten Bandung Barat
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="index.html#ikm"
+            class="back-link"
+        >
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Kembali ke Website
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section class="intro">
+
+    <span class="intro-badge">
+
+        <i class="fa-solid fa-square-poll-vertical"></i>
+
+        Survei Pelayanan Publik
+
+    </span>
+
+
+    <h2>
+        Survei Indeks Kepuasan Masyarakat (IKM)
+    </h2>
+
+
+    <p>
+
+        Selamat datang di halaman Survei Kepuasan
+        Masyarakat SD Negeri 1 Cijawa.
+        Mohon kesediaan Bapak/Ibu/Saudara/i
+        untuk memberikan penilaian terhadap
+        kualitas pelayanan yang diberikan oleh sekolah.
+
+    </p>
+
+
+    <div class="notice">
+
+        <i class="fa-solid fa-circle-info"></i>
+
+        <span>
+
+            Berdasarkan PermenPANRB No. 14 Tahun 2017,
+            survei ini menggunakan 9 unsur pelayanan publik
+            dengan skala penilaian 1 sampai 4.
+            Pilih satu nilai yang paling sesuai
+            dengan pengalaman Anda.
+
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<form id="surveyForm">
+
+
+<!-- =========================
+     DATA RESPONDEN
+========================= -->
+
+<section class="card">
+
+
+    <div class="section-title">
+
+        <div class="section-number">
+            1
+        </div>
+
+        <div>
+
+            <h3>
+                Data Responden
+            </h3>
+
+            <p>
+                Silakan lengkapi data diri
+                sebelum mengisi survei.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="form-grid">
+
+
+        <div class="form-group">
+
+            <label for="nama">
+
+                Nama
+                <span class="required">*</span>
+
+            </label>
+
+            <input
+                type="text"
+                id="nama"
+                name="nama"
+                placeholder="Masukkan nama lengkap"
+                required
+            >
+
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label for="jenisKelamin">
+
+                Jenis Kelamin
+                <span class="required">*</span>
+
+            </label>
+
+            <select
+                id="jenisKelamin"
+                name="jenisKelamin"
+                required
+            >
+
+                <option value="">
+                    -- Pilih Jenis Kelamin --
+                </option>
+
+                <option value="Laki-laki">
+                    Laki-laki
+                </option>
+
+                <option value="Perempuan">
+                    Perempuan
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div class="form-group full">
+
+            <label for="status">
+
+                Status Responden
+                <span class="required">*</span>
+
+            </label>
+
+            <select
+                id="status"
+                name="status"
+                required
+            >
+
+                <option value="">
+                    -- Pilih Status --
+                </option>
+
+                <option value="Guru">
+                    Guru
+                </option>
+
+                <option value="Peserta Didik">
+                    Peserta Didik
+                </option>
+
+                <option value="Orang Tua/Wali">
+                    Orang Tua/Wali
+                </option>
+
+                <option value="Komite">
+                    Komite
+                </option>
+
+                <option value="Masyarakat">
+                    Masyarakat
+                </option>
+
+            </select>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     9 UNSUR IKM
+========================= -->
+
+<section class="card">
+
+
+    <div class="section-title">
+
+        <div class="section-number">
+            2
+        </div>
+
+        <div>
+
+            <h3>
+                Penilaian Survei Kepuasan Masyarakat
+            </h3>
+
+            <p>
+                9 unsur pelayanan publik
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="scale-info">
+
+        <div class="scale-item">
+
+            <strong>1</strong>
+
+            Tidak Baik
+
+        </div>
+
+
+        <div class="scale-item">
+
+            <strong>2</strong>
+
+            Kurang Baik
+
+        </div>
+
+
+        <div class="scale-item">
+
+            <strong>3</strong>
+
+            Baik
+
+        </div>
+
+
+        <div class="scale-item">
+
+            <strong>4</strong>
+
+            Sangat Baik
+
+        </div>
+
+    </div>
+
+
+
+    <div id="questions">
+
+
+<!-- Q1 -->
+
+<div class="question" data-question="1">
+
+    <div class="question-title">
+
+        <span class="question-number">
+            1
+        </span>
+
+        <h4>
+
+            Persyaratan Pelayanan
+
+            <br>
+
+            <small>
+                Bagaimana penilaian Anda terhadap
+                kemudahan dan kejelasan
+                persyaratan pelayanan?
+            </small>
+
+        </h4>
+
+    </div>
+
+
+    <div class="rating-options">
+
+        <input
+            type="radio"
+            id="q1_1"
+            name="q1"
+            value="1"
+        >
+
+        <label for="q1_1">
+            <strong>1</strong>
+            Tidak Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q1_2"
+            name="q1"
+            value="2"
+        >
+
+        <label for="q1_2">
+            <strong>2</strong>
+            Kurang Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q1_3"
+            name="q1"
+            value="3"
+        >
+
+        <label for="q1_3">
+            <strong>3</strong>
+            Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q1_4"
+            name="q1"
+            value="4"
+        >
+
+        <label for="q1_4">
+            <strong>4</strong>
+            Sangat Baik
+        </label>
+
+    </div>
+
+
+    <div class="error-message">
+        Silakan pilih nilai untuk pertanyaan ini.
+    </div>
+
+</div>
+
+
+
+<!-- Q2 -->
+
+<div class="question" data-question="2">
+
+    <div class="question-title">
+
+        <span class="question-number">
+            2
+        </span>
+
+        <h4>
+
+            Prosedur Pelayanan
+
+            <br>
+
+            <small>
+                Bagaimana penilaian Anda terhadap
+                kemudahan dan kejelasan
+                prosedur pelayanan?
+            </small>
+
+        </h4>
+
+    </div>
+
+
+    <div class="rating-options">
+
+        <input
+            type="radio"
+            id="q2_1"
+            name="q2"
+            value="1"
+        >
+
+        <label for="q2_1">
+            <strong>1</strong>
+            Tidak Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q2_2"
+            name="q2"
+            value="2"
+        >
+
+        <label for="q2_2">
+            <strong>2</strong>
+            Kurang Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q2_3"
+            name="q2"
+            value="3"
+        >
+
+        <label for="q2_3">
+            <strong>3</strong>
+            Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q2_4"
+            name="q2"
+            value="4"
+        >
+
+        <label for="q2_4">
+            <strong>4</strong>
+            Sangat Baik
+        </label>
+
+    </div>
+
+
+    <div class="error-message">
+        Silakan pilih nilai untuk pertanyaan ini.
+    </div>
+
+</div>
+
+
+
+<!-- Q3 -->
+
+<div class="question" data-question="3">
+
+    <div class="question-title">
+
+        <span class="question-number">
+            3
+        </span>
+
+        <h4>
+
+            Waktu Pelayanan
+
+            <br>
+
+            <small>
+                Bagaimana penilaian Anda terhadap
+                kecepatan dan ketepatan
+                waktu pelayanan?
+            </small>
+
+        </h4>
+
+    </div>
+
+
+    <div class="rating-options">
+
+        <input
+            type="radio"
+            id="q3_1"
+            name="q3"
+            value="1"
+        >
+
+        <label for="q3_1">
+            <strong>1</strong>
+            Tidak Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q3_2"
+            name="q3"
+            value="2"
+        >
+
+        <label for="q3_2">
+            <strong>2</strong>
+            Kurang Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q3_3"
+            name="q3"
+            value="3"
+        >
+
+        <label for="q3_3">
+            <strong>3</strong>
+            Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q3_4"
+            name="q3"
+            value="4"
+        >
+
+        <label for="q3_4">
+            <strong>4</strong>
+            Sangat Baik
+        </label>
+
+    </div>
+
+
+    <div class="error-message">
+        Silakan pilih nilai untuk pertanyaan ini.
+    </div>
+
+</div>
+
+
+
+<!-- Q4 -->
+
+<div class="question" data-question="4">
+
+    <div class="question-title">
+
+        <span class="question-number">
+            4
+        </span>
+
+        <h4>
+
+            Biaya Pelayanan
+
+            <br>
+
+            <small>
+                Bagaimana penilaian Anda terhadap
+                keterbukaan dan kesesuaian
+                biaya pelayanan?
+            </small>
+
+        </h4>
+
+    </div>
+
+
+    <div class="rating-options">
+
+        <input
+            type="radio"
+            id="q4_1"
+            name="q4"
+            value="1"
+        >
+
+        <label for="q4_1">
+            <strong>1</strong>
+            Tidak Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q4_2"
+            name="q4"
+            value="2"
+        >
+
+        <label for="q4_2">
+            <strong>2</strong>
+            Kurang Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q4_3"
+            name="q4"
+            value="3"
+        >
+
+        <label for="q4_3">
+            <strong>3</strong>
+            Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q4_4"
+            name="q4"
+            value="4"
+        >
+
+        <label for="q4_4">
+            <strong>4</strong>
+            Sangat Baik
+        </label>
+
+    </div>
+
+
+    <div class="error-message">
+        Silakan pilih nilai untuk pertanyaan ini.
+    </div>
+
+</div>
+
+
+
+<!-- Q5 -->
+
+<div class="question" data-question="5">
+
+    <div class="question-title">
+
+        <span class="question-number">
+            5
+        </span>
+
+        <h4>
+
+            Kompetensi Pelaksana
+
+            <br>
+
+            <small>
+                Bagaimana penilaian Anda terhadap
+                kemampuan dan kompetensi
+                petugas/pelaksana pelayanan?
+            </small>
+
+        </h4>
+
+    </div>
+
+
+    <div class="rating-options">
+
+        <input
+            type="radio"
+            id="q5_1"
+            name="q5"
+            value="1"
+        >
+
+        <label for="q5_1">
+            <strong>1</strong>
+            Tidak Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q5_2"
+            name="q5"
+            value="2"
+        >
+
+        <label for="q5_2">
+            <strong>2</strong>
+            Kurang Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q5_3"
+            name="q5"
+            value="3"
+        >
+
+        <label for="q5_3">
+            <strong>3</strong>
+            Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q5_4"
+            name="q5"
+            value="4"
+        >
+
+        <label for="q5_4">
+            <strong>4</strong>
+            Sangat Baik
+        </label>
+
+    </div>
+
+
+    <div class="error-message">
+        Silakan pilih nilai untuk pertanyaan ini.
+    </div>
+
+</div>
+
+
+
+<!-- Q6 -->
+
+<div class="question" data-question="6">
+
+    <div class="question-title">
+
+        <span class="question-number">
+            6
+        </span>
+
+        <h4>
+
+            Perilaku Pelaksana
+
+            <br>
+
+            <small>
+                Bagaimana penilaian Anda terhadap
+                sikap, keramahan, kesopanan,
+                dan kedisiplinan pelaksana pelayanan?
+            </small>
+
+        </h4>
+
+    </div>
+
+
+    <div class="rating-options">
+
+        <input
+            type="radio"
+            id="q6_1"
+            name="q6"
+            value="1"
+        >
+
+        <label for="q6_1">
+            <strong>1</strong>
+            Tidak Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q6_2"
+            name="q6"
+            value="2"
+        >
+
+        <label for="q6_2">
+            <strong>2</strong>
+            Kurang Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q6_3"
+            name="q6"
+            value="3"
+        >
+
+        <label for="q6_3">
+            <strong>3</strong>
+            Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q6_4"
+            name="q6"
+            value="4"
+        >
+
+        <label for="q6_4">
+            <strong>4</strong>
+            Sangat Baik
+        </label>
+
+    </div>
+
+
+    <div class="error-message">
+        Silakan pilih nilai untuk pertanyaan ini.
+    </div>
+
+</div>
+
+
+
+<!-- Q7 -->
+
+<div class="question" data-question="7">
+
+    <div class="question-title">
+
+        <span class="question-number">
+            7
+        </span>
+
+        <h4>
+
+            Penanganan Pengaduan
+
+            <br>
+
+            <small>
+                Bagaimana penilaian Anda terhadap
+                mekanisme dan tindak lanjut
+                penanganan pengaduan?
+            </small>
+
+        </h4>
+
+    </div>
+
+
+    <div class="rating-options">
+
+        <input
+            type="radio"
+            id="q7_1"
+            name="q7"
+            value="1"
+        >
+
+        <label for="q7_1">
+            <strong>1</strong>
+            Tidak Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q7_2"
+            name="q7"
+            value="2"
+        >
+
+        <label for="q7_2">
+            <strong>2</strong>
+            Kurang Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q7_3"
+            name="q7"
+            value="3"
+        >
+
+        <label for="q7_3">
+            <strong>3</strong>
+            Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q7_4"
+            name="q7"
+            value="4"
+        >
+
+        <label for="q7_4">
+            <strong>4</strong>
+            Sangat Baik
+        </label>
+
+    </div>
+
+
+    <div class="error-message">
+        Silakan pilih nilai untuk pertanyaan ini.
+    </div>
+
+</div>
+
+
+
+<!-- Q8 -->
+
+<div class="question" data-question="8">
+
+    <div class="question-title">
+
+        <span class="question-number">
+            8
+        </span>
+
+        <h4>
+
+            Sarana dan Prasarana
+
+            <br>
+
+            <small>
+                Bagaimana penilaian Anda terhadap
+                kondisi dan ketersediaan sarana
+                dan prasarana pelayanan?
+            </small>
+
+        </h4>
+
+    </div>
+
+
+    <div class="rating-options">
+
+        <input
+            type="radio"
+            id="q8_1"
+            name="q8"
+            value="1"
+        >
+
+        <label for="q8_1">
+            <strong>1</strong>
+            Tidak Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q8_2"
+            name="q8"
+            value="2"
+        >
+
+        <label for="q8_2">
+            <strong>2</strong>
+            Kurang Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q8_3"
+            name="q8"
+            value="3"
+        >
+
+        <label for="q8_3">
+            <strong>3</strong>
+            Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q8_4"
+            name="q8"
+            value="4"
+        >
+
+        <label for="q8_4">
+            <strong>4</strong>
+            Sangat Baik
+        </label>
+
+    </div>
+
+
+    <div class="error-message">
+        Silakan pilih nilai untuk pertanyaan ini.
+    </div>
+
+</div>
+
+
+
+<!-- Q9 -->
+
+<div class="question" data-question="9">
+
+    <div class="question-title">
+
+        <span class="question-number">
+            9
+        </span>
+
+        <h4>
+
+            Kualitas Hasil Pelayanan
+
+            <br>
+
+            <small>
+                Bagaimana penilaian Anda terhadap
+                kualitas hasil pelayanan yang diberikan?
+            </small>
+
+        </h4>
+
+    </div>
+
+
+    <div class="rating-options">
+
+        <input
+            type="radio"
+            id="q9_1"
+            name="q9"
+            value="1"
+        >
+
+        <label for="q9_1">
+            <strong>1</strong>
+            Tidak Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q9_2"
+            name="q9"
+            value="2"
+        >
+
+        <label for="q9_2">
+            <strong>2</strong>
+            Kurang Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q9_3"
+            name="q9"
+            value="3"
+        >
+
+        <label for="q9_3">
+            <strong>3</strong>
+            Baik
+        </label>
+
+
+        <input
+            type="radio"
+            id="q9_4"
+            name="q9"
+            value="4"
+        >
+
+        <label for="q9_4">
+            <strong>4</strong>
+            Sangat Baik
+        </label>
+
+    </div>
+
+
+    <div class="error-message">
+        Silakan pilih nilai untuk pertanyaan ini.
+    </div>
+
+</div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SARAN
+========================= -->
+
+<section class="card">
+
+
+    <div class="section-title">
+
+        <div class="section-number">
+            3
+        </div>
+
+        <div>
+
+            <h3>
+                Saran dan Masukan
+            </h3>
+
+            <p>
+                Bagian ini bersifat opsional.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label for="saran">
+
+            Saran untuk peningkatan pelayanan
+
+        </label>
+
+
+        <textarea
+            id="saran"
+            name="saran"
+            placeholder="Tuliskan kritik, saran, atau masukan Anda."
+        ></textarea>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SUBMIT
+========================= -->
+
+<section class="card submit-area">
+
+
+    <button
+        type="submit"
+        class="submit-btn"
+        id="submitButton"
+    >
+
+        <i class="fa-solid fa-paper-plane"></i>
+
+        Kirim Survei
+
+    </button>
+
+
+    <p class="privacy">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        Terima kasih atas partisipasi Anda
+        dalam meningkatkan kualitas pelayanan
+        SD Negeri 1 Cijawa.
+
+    </p>
+
+</section>
+
+
+</form>
+
+
+</main>
+
+
+
+<footer class="footer">
+
+    © 2026 SD Negeri 1 Cijawa •
+    Survei Indeks Kepuasan Masyarakat
+
+</footer>
+
+
+
+<!-- =========================
+     MODAL SUKSES
+========================= -->
+
+<div
+    class="success-modal"
+    id="successModal"
+>
+
+    <div class="success-box">
+
+
+        <div class="success-icon">
+
+            <i class="fa-solid fa-check"></i>
+
+        </div>
+
+
+        <h2>
+            Survei Berhasil Dikirim!
+        </h2>
+
+
+        <p>
+
+            Terima kasih telah berpartisipasi
+            dalam Survei Indeks Kepuasan Masyarakat
+            SD Negeri 1 Cijawa.
+
+        </p>
+
+
+        <div class="result-score">
+
+            Nilai rata-rata penilaian Anda
+
+
+            <strong id="resultAverage">
+                0.00 / 4.00
+            </strong>
+
+
+            <span id="resultCategory">
+                -
+            </span>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+
+            <a
+                href="index.html#ikm"
+                class="modal-btn primary"
+            >
+
+                Kembali ke Website
+
+            </a>
+
+
+            <button
+                type="button"
+                class="modal-btn secondary"
+                id="closeModal"
+            >
+
+                Tutup
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =========================================
+   URL GOOGLE APPS SCRIPT
+========================================= */
+
+const API_URL =
+    'https://script.google.com/macros/s/AKfycbxOkXkPSuRIR2i8s-IuoXc2_cmmsNVuv0jMymtoRCXPKQ3yNXTdm6M3-awRSnxqEbo/exec';
+
+
+
+/* =========================================
+   ELEMENT
+========================================= */
+
+const surveyForm =
+    document.getElementById(
+        'surveyForm'
+    );
+
+
+const successModal =
+    document.getElementById(
+        'successModal'
+    );
+
+
+const closeModal =
+    document.getElementById(
+        'closeModal'
+    );
+
+
+const submitButton =
+    document.getElementById(
+        'submitButton'
+    );
+
+
+
+/* =========================================
+   KATEGORI NILAI INDIVIDU
+========================================= */
+
+function getCategory(
+    average
+) {
+
+    if (
+        average >= 3.26
+    ) {
+
+        return 'Sangat Baik';
+
+    }
+
+    if (
+        average >= 2.51
+    ) {
+
+        return 'Baik';
+
+    }
+
+    if (
+        average >= 1.76
+    ) {
+
+        return 'Kurang Baik';
+
+    }
+
+    return 'Tidak Baik';
+
+}
+
+
+
+/* =========================================
+   SUBMIT FORM
+========================================= */
+
+surveyForm.addEventListener(
+    'submit',
+    async function(event) {
+
+        event.preventDefault();
+
+
+        /* =========================
+           VALIDASI
+        ========================= */
+
+        let complete =
+            true;
+
+
+        let firstError =
+            null;
+
+
+        for (
+            let i = 1;
+            i <= 9;
+            i++
+        ) {
+
+
+            const question =
+                document.querySelector(
+                    `.question[data-question="${i}"]`
+                );
+
+
+            const selected =
+                document.querySelector(
+                    `input[name="q${i}"]:checked`
+                );
+
+
+            question.classList.remove(
+                'has-error'
+            );
+
+
+            if (
+                !selected
+            ) {
+
+
+                complete =
+                    false;
+
+
+                question.classList.add(
+                    'has-error'
+                );
+
+
+                if (
+                    !firstError
+                ) {
+
+                    firstError =
+                        question;
+
+                }
+
+            }
+
+        }
+
+
+        if (
+            !complete
+        ) {
+
+
+            firstError.scrollIntoView({
+
+                behavior:
+                    'smooth',
+
+                block:
+                    'center'
+
+            });
+
+
+            return;
+
+        }
+
+
+
+        /* =========================
+           AMBIL DATA RESPONDEN
+        ========================= */
+
+        const nama =
+            document
+            .getElementById(
+                'nama'
+            )
+            .value
+            .trim();
+
+
+        const jenisKelamin =
+            document
+            .getElementById(
+                'jenisKelamin'
+            )
+            .value;
+
+
+        const status =
+            document
+            .getElementById(
+                'status'
+            )
+            .value;
+
+
+        const saran =
+            document
+            .getElementById(
+                'saran'
+            )
+            .value
+            .trim();
+
+
+
+        /* =========================
+           DATA YANG DIKIRIM
+        ========================= */
+
+        const data = {
+
+            nama:
+                nama,
+
+            jenisKelamin:
+                jenisKelamin,
+
+            status:
+                status,
+
+            q1:
+                Number(
+                    document.querySelector(
+                        'input[name="q1"]:checked'
+                    ).value
+                ),
+
+            q2:
+                Number(
+                    document.querySelector(
+                        'input[name="q2"]:checked'
+                    ).value
+                ),
+
+            q3:
+                Number(
+                    document.querySelector(
+                        'input[name="q3"]:checked'
+                    ).value
+                ),
+
+            q4:
+                Number(
+                    document.querySelector(
+                        'input[name="q4"]:checked'
+                    ).value
+                ),
+
+            q5:
+                Number(
+                    document.querySelector(
+                        'input[name="q5"]:checked'
+                    ).value
+                ),
+
+            q6:
+                Number(
+                    document.querySelector(
+                        'input[name="q6"]:checked'
+                    ).value
+                ),
+
+            q7:
+                Number(
+                    document.querySelector(
+                        'input[name="q7"]:checked'
+                    ).value
+                ),
+
+            q8:
+                Number(
+                    document.querySelector(
+                        'input[name="q8"]:checked'
+                    ).value
+                ),
+
+            q9:
+                Number(
+                    document.querySelector(
+                        'input[name="q9"]:checked'
+                    ).value
+                ),
+
+            saran:
+                saran
+
+        };
+
+
+
+        /* =========================
+           HITUNG NILAI INDIVIDU
+        ========================= */
+
+        const total =
+
+            data.q1 +
+            data.q2 +
+            data.q3 +
+            data.q4 +
+            data.q5 +
+            data.q6 +
+            data.q7 +
+            data.q8 +
+            data.q9;
+
+
+        const average =
+            total / 9;
+
+
+        const category =
+            getCategory(
+                average
+            );
+
+
+
+        /* =========================
+           LOADING
+        ========================= */
+
+        const originalButton =
+            submitButton.innerHTML;
+
+
+        submitButton.disabled =
+            true;
+
+
+        submitButton.innerHTML =
+
+            '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim Survei...';
+
+
+
+        try {
+
+
+            /* =========================
+               KIRIM KE GOOGLE SHEETS
+            ========================= */
+
+            const response =
+                await fetch(
+
+                    API_URL,
+
+                    {
+
+                        method:
+                            'POST',
+
+                        body:
+                            JSON.stringify(
+                                data
+                            )
+
+                    }
+
+                );
+
+
+
+            const result =
+                await response.json();
+
+
+
+            /* =========================
+               JIKA GAGAL
+            ========================= */
+
+            if (
+                !result.success
+            ) {
+
+                throw new Error(
+
+                    result.message ||
+
+                    'Data survei gagal disimpan.'
+
+                );
+
+            }
+
+
+
+            /* =========================
+               TAMPILKAN HASIL INDIVIDU
+            ========================= */
+
+            document
+                .getElementById(
+                    'resultAverage'
+                )
+                .textContent =
+
+                average.toFixed(2) +
+
+                ' / 4.00';
+
+
+
+            document
+                .getElementById(
+                    'resultCategory'
+                )
+                .textContent =
+
+                category;
+
+
+
+            /* =========================
+               TAMPILKAN MODAL
+            ========================= */
+
+            successModal
+                .classList
+                .add(
+                    'show'
+                );
+
+
+            window.scrollTo({
+
+                top:
+                    0,
+
+                behavior:
+                    'smooth'
+
+            });
+
+
+
+            /* =========================
+               RESET FORM
+            ========================= */
+
+            surveyForm.reset();
+
+
+
+        } catch (
+            error
+        ) {
+
+
+            console.error(
+                error
+            );
+
+
+            alert(
+
+                'Survei gagal dikirim.\n\n' +
+
+                error.message
+
+            );
+
+
+        } finally {
+
+
+            submitButton.disabled =
+                false;
+
+
+            submitButton.innerHTML =
+                originalButton;
+
+
+        }
+
+    }
+);
+
+
+
+/* =========================================
+   TUTUP MODAL
+========================================= */
+
+closeModal.addEventListener(
+    'click',
+    function() {
+
+        successModal
+            .classList
+            .remove(
+                'show'
+            );
+
+    }
+);
+
+
+
+/* =========================================
+   KLIK DI LUAR MODAL
+========================================= */
+
+successModal.addEventListener(
+    'click',
+    function(event) {
+
+        if (
+            event.target ===
+            successModal
+        ) {
+
+            successModal
+                .classList
+                .remove(
+                    'show'
+                );
+
+        }
+
+    }
+);
+
+
+
+/* =========================================
+   HAPUS ERROR SAAT MEMILIH JAWABAN
+========================================= */
+
+document
+    .querySelectorAll(
+        '.rating-options input'
+    )
+    .forEach(
+        function(input) {
+
+            input.addEventListener(
+                'change',
+                function() {
+
+
+                    const question =
+                        this.closest(
+                            '.question'
+                        );
+
+
+                    if (
+                        question
+                    ) {
+
+                        question
+                            .classList
+                            .remove(
+                                'has-error'
+                            );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+</script>
+
+
+</body>
+</html>
