@@ -360,61 +360,46 @@ box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
 .navbar{
-    max-width:1200px;
-    margin:auto;
+    height:84px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    height:80px;
-    padding:0 20px;
+    padding:0 24px;
 }
 
 .logo{
     display:flex;
-    align-items:center;
-    gap:15px;
+    align-items:center;      /* membuat logo dan tulisan benar-benar sejajar */
+    gap:16px;
     text-decoration:none;
 }
 
 .logo img{
-    width:55px;
-    height:55px;
+    width:58px;
+    height:58px;
+    object-fit:contain;
+    display:block;
 }
 
-.logo span{
-    color:#fff;
-    font-size:24px;
-    font-weight:700;
-}
-
-.navbar ul{
+.logo-text{
     display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:40px;
-    list-style:none;
+    flex-direction:column;
+    justify-content:center;  /* tulisan berada di tengah terhadap logo */
+}
+
+.logo-text h1{
     margin:0;
-    padding:0;
-}
-
-.navbar ul li{
-    display:flex;
-    align-items:center;
-}
-
-.navbar ul li a{
     color:#fff;
-    text-decoration:none;
-    font-size:24px;      /* Besarkan tulisan */
-    font-weight:600;
-    padding:10px 0;
-    transition:.3s;
-    position:relative;
+    font-size:22px;
+    font-weight:700;
+    line-height:1.2;
 }
 
-.navbar ul li a:hover,
-.navbar ul li a.active{
-    color:#ffc107;
+.logo-text p{
+    margin:4px 0 0;
+    color:#dbe8ff;
+    font-size:15px;
+    font-weight:500;
 }
 
 .navbar ul li a::after{
