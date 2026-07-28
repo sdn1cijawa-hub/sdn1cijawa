@@ -351,40 +351,87 @@ text-align:center;
 box-shadow:0 5px 20px rgba(0,0,0,.06);
 
 }
-    .navbar ul{
-    display:flex;
-    list-style:none;
-    align-items:center;
-    gap:30px;
-    margin-left:auto;
+   header{
+    background:#1565c0;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
 }
-    .navbar ul{
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:80px;
+    padding:0 20px;
+}
+
+.logo{
     display:flex;
     align-items:center;
-    justify-content:flex-end;
-    gap:30px;
+    gap:15px;
+    text-decoration:none;
+}
+
+.logo img{
+    width:55px;
+    height:55px;
+}
+
+.logo span{
+    color:#fff;
+    font-size:24px;
+    font-weight:700;
+}
+
+.navbar ul{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:40px;
     list-style:none;
     margin:0;
     padding:0;
-    margin-left:auto;
 }
 
 .navbar ul li{
-    list-style:none;
+    display:flex;
+    align-items:center;
 }
 
 .navbar ul li a{
     color:#fff;
     text-decoration:none;
+    font-size:24px;      /* Besarkan tulisan */
     font-weight:600;
+    padding:10px 0;
     transition:.3s;
+    position:relative;
 }
 
 .navbar ul li a:hover,
 .navbar ul li a.active{
-    color:#ffd54f;
+    color:#ffc107;
 }
 
+.navbar ul li a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:3px;
+    background:#ffc107;
+    transition:.3s;
+}
+
+.navbar ul li a:hover::after,
+.navbar ul li a.active::after{
+    width:100%;
+}
 .step span{
 
 width:60px;
