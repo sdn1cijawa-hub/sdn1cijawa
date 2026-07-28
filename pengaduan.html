@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pengaduan Pelayanan | SD Negeri 1 Cijawa</title>
+
+<meta name="description"
+content="Layanan Pengaduan Pelayanan SD Negeri 1 Cijawa">
+
+<link rel="icon" href="assets/logo-sd.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<style>
+
+/* Tambahan khusus halaman pengaduan */
+
+body{
+background:#f4f8fc;
+}
+
+.hero-pengaduan{
+
+background:linear-gradient(135deg,#1565c0,#0d47a1);
+
+padding:80px 20px;
+
+color:#fff;
+
+overflow:hidden;
+
+}
+
+.hero-content{
+
+max-width:1200px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:1fr 450px;
+
+gap:40px;
+
+align-items:center;
+
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+}
+
+.logo span{
+    color:#ffffff;
+    font-size:30px;
+    font-weight:700;
+}
+
+.hero-content h1{
+
+font-size:48px;
+
+font-weight:700;
+
+margin-bottom:15px;
+
+}
+
+.hero-content p{
+
+font-size:18px;
+
+line-height:1.8;
+
+opacity:.95;
+
+}
+
+.hero-image{
+
+text-align:center;
+
+}
+
+.hero-image i{
+
+font-size:220px;
+
+color:#ffffff22;
+
+}
+
+.page{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:60px 20px;
+
+}
+
+.card{
+
+background:#fff;
+
+border-radius:18px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+padding:35px;
+
+margin-bottom:30px;
+
+}
+
+
+.card h2{
+
+color:#1565c0;
+
+margin-bottom:25px;
+
+font-size:28px;
+
+}
+
+.form-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:20px;
+
+}
+
+.form-group{
+
+margin-bottom:20px;
+
+}
+
+.form-group label{
+
+display:block;
+
+font-weight:600;
+
+margin-bottom:8px;
+
+}
+
+.form-group input,
+
+.form-group textarea,
+
+.form-group select{
+
+width:100%;
+
+padding:14px;
+
+border:1px solid #d9d9d9;
+
+border-radius:12px;
+
+font-size:15px;
+
+font-family:Poppins,sans-serif;
+
+transition:.3s;
+
+}
+
+.form-group input:focus,
+
+.form-group textarea:focus,
+
+.form-group select:focus{
+
+border-color:#1565c0;
+
+outline:none;
+
+box-shadow:0 0 10px rgba(21,101,192,.15);
+
+}
+
+textarea{
+
+min-height:170px;
+
+resize:vertical;
+
+}
+
+.full{
+
+grid-column:1/3;
+
+}
+
+.submit-area{
+
+display:flex;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+margin-top:15px;
+
+}
+
+.btn-submit{
+
+background:#1565c0;
+
+color:#fff;
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:10px;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:.3s;
+
+font-weight:600;
+
+}
+
+.btn-submit:hover{
+
+background:#0b4ea3;
+
+}
+
+.btn-home{
+
+background:#ffc107;
+
+color:#222;
+
+padding:15px 35px;
+
+border-radius:10px;
+
+text-decoration:none;
+
+font-weight:600;
+
+}
+
+.btn-home:hover{
+
+background:#ffb300;
+
+}
+
+.info-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:25px;
+
+margin-top:20px;
+
+}
+
+.info-box{
+
+background:#fff;
+
+border-radius:18px;
+
+padding:25px;
+
+text-align:center;
+
+box-shadow:0 5px 20px rgba(0,0,0,.07);
+
+}
+
+.info-box i{
+
+font-size:40px;
+
+color:#1565c0;
+
+margin-bottom:15px;
+
+}
+
+.info-box h3{
+
+margin-bottom:10px;
+
+}
+
+.timeline{
+
+display:flex;
+
+justify-content:space-between;
+
+gap:15px;
+
+margin-top:35px;
+
+flex-wrap:wrap;
+
+}
+
+.step{
+
+flex:1;
+
+min-width:180px;
+
+background:#fff;
+
+padding:25px;
+
+border-radius:15px;
+
+text-align:center;
+
+box-shadow:0 5px 20px rgba(0,0,0,.06);
+
+}
+
+.step span{
+
+width:60px;
+
+height:60px;
+
+display:inline-flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:#1565c0;
+
+color:#fff;
+
+border-radius:50%;
+
+font-size:24px;
+
+margin-bottom:15px;
+
+}
+
+.loading{
+
+display:none;
+
+text-align:center;
+
+margin-top:20px;
+
+color:#1565c0;
+
+font-weight:600;
+
+}
+
+@media(max-width:900px){
+
+.hero-content{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.hero-content h1{
+
+font-size:35px;
+
+}
+
+.form-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.full{
+
+grid-column:auto;
+
+}
+
+.info-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+
+<img src="assets/logo-sd.png" alt="Logo">
+
+<span>SD Negeri 1 Cijawa</span>
+
+</a>
+
+<ul>
+
+<li><a href="index.html">Beranda</a></li>
+
+<li><a href="dashboard.html">Dashboard IKM</a></li>
+
+<li><a href="pengaduan.html" class="active">Pengaduan</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero-pengaduan">
+
+<div class="hero-content">
+
+<div>
+
+<h1>
+SIGAP JUARA
+</h1>
+
+<p>
+
+Sampaikan kritik, saran maupun pengaduan mengenai pelayanan
+SD Negeri 1 Cijawa.
+
+Seluruh pengaduan akan diproses secara profesional,
+transparan, objektif dan menjaga kerahasiaan identitas pelapor.
+
+</p>
+
+<br>
+
+<a href="#formPengaduan" class="btn-home">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Isi Pengaduan
+
+</a>
+
+</div>
+
+<div class="hero-image">
+
+<i class="fa-solid fa-headset"></i>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="page">
+
+<div class="card" id="formPengaduan">
+
+<h2>
+
+<i class="fa-solid fa-file-signature"></i>
+
+Form Pengaduan Pelayanan
+
+</h2>
+
+<form id="pengaduanForm">
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<label>Nama Pelapor</label>
+
+<input
+type="text"
+id="nama"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>Nomor Telepon / WhatsApp</label>
+
+<input
+type="tel"
+id="telepon"
+required>
+
+</div>
+
+<div class="form-group full">
+
+<label>Alamat</label>
+
+<input
+type="text"
+id="alamat"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>Jenis Pengaduan</label>
+
+<select id="jenis" required>
+
+<option value="">-- Pilih Jenis Pengaduan --</option>
+
+<option>Pelayanan Administrasi</option>
+
+<option>Pelayanan Guru</option>
+
+<option>Sarana dan Prasarana</option>
+
+<option>Kedisiplinan</option>
+
+<option>Perundungan (Bullying)</option>
+
+<option>Kebersihan Lingkungan</option>
+
+<option>Keamanan Sekolah</option>
+
+<option>Pelayanan Informasi</option>
+
+<option>Lainnya</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Tanggal Pengaduan</label>
+
+<input
+type="text"
+id="tanggal"
+readonly>
+
+</div>
+
+<div class="form-group full">
+
+<label>Isi Laporan / Pengaduan</label>
+
+<textarea
+id="isi"
+placeholder="Tuliskan kronologi atau pengaduan secara lengkap..."
+required></textarea>
+
+</div>
+
+<div class="form-group full">
+
+<label>Bukti Laporan (Link Google Drive / Foto)</label>
+
+<input
+type="text"
+id="bukti"
+placeholder="https://drive.google.com/...">
+
+<small style="color:#666">
+Opsional. Isi jika memiliki foto atau dokumen pendukung.
+</small>
+
+</div>
+
+</div>
+
+<div class="submit-area">
+
+<button
+type="submit"
+class="btn-submit">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Kirim Pengaduan
+
+</button>
+
+<a
+href="index.html"
+class="btn-home">
+
+<i class="fa-solid fa-house"></i>
+
+Kembali
+
+</a>
+
+</div>
+
+<div
+class="loading"
+id="loading">
+
+<i class="fa-solid fa-spinner fa-spin"></i>
+
+Mengirim pengaduan...
+
+</div>
+
+</form>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+<i class="fa-solid fa-circle-info"></i>
+
+Informasi Layanan Pengaduan
+
+</h2>
+
+<div class="info-grid">
+
+<div class="info-box">
+
+<i class="fa-solid fa-envelope"></i>
+
+<h3>Email</h3>
+
+<p>
+
+sdn1cijawa@gmail.com
+
+</p>
+
+</div>
+
+<div class="info-box">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+<h3>WhatsApp</h3>
+
+<p>
+
+Hubungi Admin Sekolah
+
+</p>
+
+</div>
+
+<div class="info-box">
+
+<i class="fa-solid fa-location-dot"></i>
+
+<h3>Alamat</h3>
+
+<p>
+
+SD Negeri 1 Cijawa
+
+Kecamatan Cipeundeuy
+
+Kabupaten Bandung Barat
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+<i class="fa-solid fa-list-check"></i>
+
+Alur Penanganan Pengaduan
+
+</h2>
+
+<div class="timeline">
+
+<div class="step">
+
+<span>1</span>
+
+<h3>Pengaduan Masuk</h3>
+
+<p>
+
+Pengaduan diterima sistem.
+
+</p>
+
+</div>
+
+<div class="step">
+
+<span>2</span>
+
+<h3>Verifikasi</h3>
+
+<p>
+
+Admin memeriksa kelengkapan data.
+
+</p>
+
+</div>
+
+<div class="step">
+
+<span>3</span>
+
+<h3>Tindak Lanjut</h3>
+
+<p>
+
+Pengaduan diteruskan kepada pihak terkait.
+
+</p>
+
+</div>
+
+<div class="step">
+
+<span>4</span>
+
+<h3>Selesai</h3>
+
+<p>
+
+Pengaduan telah ditangani.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<footer style="background:#1565c0;color:#fff;padding:40px 20px;text-align:center;">
+
+<h3>SD Negeri 1 Cijawa</h3>
+
+<p>
+
+SIGAP JUARA<br>
+
+Sistem Informasi dan Gerakan Pelayanan JUARA
+
+</p>
+
+<p style="margin-top:10px;font-size:14px;opacity:.8;">
+
+© 2026 SD Negeri 1 Cijawa
+
+</p>
+
+</footer>
+
+<script>
+
+const WEB_APP_URL =
+"https://script.google.com/macros/s/AKfycbx7hW7hSXwmh6WOZQgP2INaQUNFMVQCHIsz5FywsM9XpJaxLWkl9MJZz2aU8DU0geNmmA/exec";
+
+/* ==========================
+   TANGGAL OTOMATIS
+========================== */
+
+const sekarang = new Date();
+
+const tanggal =
+sekarang.toLocaleDateString("id-ID",{
+
+day:"2-digit",
+
+month:"long",
+
+year:"numeric"
+
+});
+
+document.getElementById("tanggal").value=tanggal;
+
+/* ==========================
+   SUBMIT FORM
+========================== */
+
+document
+.getElementById("pengaduanForm")
+.addEventListener("submit",kirimPengaduan);
+
+async function kirimPengaduan(e){
+
+e.preventDefault();
+
+document
+.getElementById("loading")
+.style.display="block";
+
+const data={
+
+nama:
+document.getElementById("nama").value,
+
+alamat:
+document.getElementById("alamat").value,
+
+telepon:
+document.getElementById("telepon").value,
+
+jenis:
+document.getElementById("jenis").value,
+
+isi:
+document.getElementById("isi").value,
+
+bukti:
+document.getElementById("bukti").value
+
+};
+
+try{
+
+const response=await fetch(
+WEB_APP_URL,
+{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify(data)
+
+});
+
+const hasil=await response.json();
+
+if(hasil.success){
+
+Swal.fire({
+
+icon:"success",
+
+title:"Berhasil",
+
+text:"Pengaduan berhasil dikirim.",
+
+confirmButtonColor:"#1565c0"
+
+});
+
+document.getElementById("pengaduanForm").reset();
+
+/* isi kembali tanggal otomatis */
+
+document.getElementById("tanggal").value=tanggal;
+
+}else{
+
+Swal.fire({
+
+icon:"error",
+
+title:"Gagal",
+
+text:hasil.message || "Pengaduan gagal dikirim.",
+
+confirmButtonColor:"#d33"
+
+});
+
+}
+
+}catch(error){
+
+Swal.fire({
+
+icon:"error",
+
+title:"Terjadi Kesalahan",
+
+text:"Tidak dapat terhubung ke server. Silakan coba beberapa saat lagi.",
+
+confirmButtonColor:"#d33"
+
+});
+
+console.error(error);
+
+}
+
+finally{
+
+document.getElementById("loading").style.display="none";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
