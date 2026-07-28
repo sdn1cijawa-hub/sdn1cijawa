@@ -880,11 +880,21 @@ WEB_APP_URL,
 
 method:"POST",
 
-headers:{
-"Content-Type":"application/json"
-},
+const formData = new FormData();
 
-body:JSON.stringify(data)
+formData.append("nama",document.getElementById("nama").value);
+formData.append("alamat",document.getElementById("alamat").value);
+formData.append("telepon",document.getElementById("telepon").value);
+formData.append("jenis",document.getElementById("jenis").value);
+formData.append("isi",document.getElementById("isi").value);
+formData.append("bukti",document.getElementById("bukti").value);
+
+const response = await fetch(WEB_APP_URL,{
+    method:"POST",
+    body:formData
+});
+
+const hasil = await response.json();
 
 });
 
