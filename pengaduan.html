@@ -844,121 +844,63 @@ document
 
 async function kirimPengaduan(e){
 
-e.preventDefault();
+    e.preventDefault();
 
-document
-.getElementById("loading")
-.style.display="block";
+    document.getElementById("loading").style.display="block";
 
-const data={
+    const formData = new FormData();
 
-nama:
-document.getElementById("nama").value,
+    formData.append("nama", document.getElementById("nama").value);
+    formData.append("alamat", document.getElementById("alamat").value);
+    formData.append("telepon", document.getElementById("telepon").value);
+    formData.append("jenis", document.getElementById("jenis").value);
+    formData.append("isi", document.getElementById("isi").value);
+    formData.append("bukti", document.getElementById("bukti").value);
 
-alamat:
-document.getElementById("alamat").value,
+    try{
 
-telepon:
-document.getElementById("telepon").value,
+        const response = await fetch(WEB_APP_URL,{
+            method:"POST",
+            body:formData
+        });
 
-jenis:
-document.getElementById("jenis").value,
+        const hasil = await response.json();
 
-isi:
-document.getElementById("isi").value,
+        if(hasil.success){
 
-bukti:
-document.getElementById("bukti").value
+            Swal.fire({
+                icon:"success",
+                title:"Berhasil",
+                text:"Pengaduan berhasil dikirim.",
+                confirmButtonColor:"#1565c0"
+            });
 
-};
+            document.getElementById("pengaduanForm").reset();
+            document.getElementById("tanggal").value=tanggal;
 
-try{
+        }else{
 
-const response=await fetch(
-WEB_APP_URL,
-{
+            Swal.fire({
+                icon:"error",
+                title:"Gagal",
+                text:hasil.message
+            });
 
-method:"POST",
+        }
 
-const formData = new FormData();
+    }catch(err){
 
-formData.append("nama",document.getElementById("nama").value);
-formData.append("alamat",document.getElementById("alamat").value);
-formData.append("telepon",document.getElementById("telepon").value);
-formData.append("jenis",document.getElementById("jenis").value);
-formData.append("isi",document.getElementById("isi").value);
-formData.append("bukti",document.getElementById("bukti").value);
+        console.error(err);
 
-const response = await fetch(WEB_APP_URL,{
-    method:"POST",
-    body:formData
-});
+        Swal.fire({
+            icon:"error",
+            title:"Terjadi Kesalahan",
+            text:"Tidak dapat terhubung ke server."
+        });
 
-const hasil = await response.json();
+    }
 
-});
-
-const hasil=await response.json();
-
-if(hasil.success){
-
-Swal.fire({
-
-icon:"success",
-
-title:"Berhasil",
-
-text:"Pengaduan berhasil dikirim.",
-
-confirmButtonColor:"#1565c0"
-
-});
-
-document.getElementById("pengaduanForm").reset();
-
-/* isi kembali tanggal otomatis */
-
-document.getElementById("tanggal").value=tanggal;
-
-}else{
-
-Swal.fire({
-
-icon:"error",
-
-title:"Gagal",
-
-text:hasil.message || "Pengaduan gagal dikirim.",
-
-confirmButtonColor:"#d33"
-
-});
-
-}
-
-}catch(error){
-
-Swal.fire({
-
-icon:"error",
-
-title:"Terjadi Kesalahan",
-
-text:"Tidak dapat terhubung ke server. Silakan coba beberapa saat lagi.",
-
-confirmButtonColor:"#d33"
-
-});
-
-console.error(error);
-
-}
-
-finally{
-
-document.getElementById("loading").style.display="none";
-
-}
+    document.getElementById("loading").style.display="none";
 
 }
 
